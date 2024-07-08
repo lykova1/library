@@ -1,5 +1,5 @@
-# Используем официальный образ Maven с JDK 17
-FROM maven:3.8.7-eclipse-temurin-18 AS build
+# Используем официальный образ Maven с JDK 17 для сборки
+FROM maven:3.8.7-eclipse-temurin-17 AS build
 
 # Устанавливаем рабочую директорию
 WORKDIR /app
@@ -29,10 +29,5 @@ ENV SPRING_PROFILES_ACTIVE=local
 # Открываем порт
 EXPOSE 8090
 
-# Используем базовый образ, подходящий для работы с PostgreSQL
-FROM postgres:latest
-
-# Копируем backup.sql из локальной директории в контейнер
-COPY backup.sql /docker-entrypoint-initdb.d/
 # Запускаем приложение
 ENTRYPOINT ["java", "-jar", "app.jar"]
