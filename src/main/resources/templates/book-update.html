@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Update Book</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #343a40;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+    }
+    .form-control {
+      border-color: #6c757d;
+    }
+    .btn-custom {
+      background-color: #343a40;
+      color: #ffffff;
+      border-color: #343a40;
+    }
+    .btn-custom:hover {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+    label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container form-container">
+  <h1 class="mb-4 text-center">Update Book</h1>
+  <form action="#" th:action="@{/book-update}" th:object="${book}" method="post">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input readonly type="text" th:field="*{id}" id="id" class="form-control" placeholder="ID">
+    </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" th:field="*{title}" id="title" class="form-control" placeholder="Title" required>
+    </div>
+    <div class="form-group">
+      <label for="article">Article</label>
+      <input type="text" th:field="*{article}" id="article" class="form-control" placeholder="Article" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" th:field="*{description}" id="description" class="form-control" placeholder="Description"required>
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input type="text" th:field="*{category}" id="category" class="form-control" placeholder="Category" required>
+    </div>
+    <div class="form-group">
+      <label for="releaseYear">Release Year</label>
+      <input type="number" th:field="*{releaseYear}" id="releaseYear" class="form-control" placeholder="Release Year">
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input type="number" th:field="*{quantity}" id="quantity" class="form-control" placeholder="Quantity" >
+    </div>
+    <button type="submit" class="btn btn-custom btn-block mt-4">Update Book</button>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
